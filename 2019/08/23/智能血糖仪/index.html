@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="智能血糖仪二期项目 （2017年作品）将京东健康小程序与智能硬件相结合，打造京东健康智能数据平台，本期接入智能血糖仪，提供导入血糖数据，血糖提醒和家人血糖管理功能，并接入京东互联网医院问诊，全方位为用户健康保驾护航。 痛点 一期项目满足接入腾讯腾爱血糖仪的需求，该类别血糖仪是依靠WIFI进行连接，商业拓展范围有限；  当前，京东健康并未收集过健康方面的数据，所有的数据来源都是电商药物的销售，一方面">
+<meta name="keywords" content="产品">
+<meta property="og:type" content="article">
+<meta property="og:title" content="智能血糖仪二期项目">
+<meta property="og:url" content="http://yoursite.com/2019/08/23/智能血糖仪/index.html">
+<meta property="og:site_name" content="简约至上">
+<meta property="og:description" content="智能血糖仪二期项目 （2017年作品）将京东健康小程序与智能硬件相结合，打造京东健康智能数据平台，本期接入智能血糖仪，提供导入血糖数据，血糖提醒和家人血糖管理功能，并接入京东互联网医院问诊，全方位为用户健康保驾护航。 痛点 一期项目满足接入腾讯腾爱血糖仪的需求，该类别血糖仪是依靠WIFI进行连接，商业拓展范围有限；  当前，京东健康并未收集过健康方面的数据，所有的数据来源都是电商药物的销售，一方面">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95%E9%A1%B5.png">
+<meta property="og:image" content="http://yoursite.com/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E4%B8%BB%E9%A1%B5.png">
+<meta property="og:image" content="http://yoursite.com/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86%E9%A1%B5%E9%9D%A2.png">
+<meta property="og:image" content="http://yoursite.com/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E8%AE%BE%E5%A4%87%E6%9C%AA%E6%89%BE%E5%88%B0%E5%8E%9F%E5%9B%A0.png">
+<meta property="og:image" content="http://yoursite.com/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E6%B7%BB%E5%8A%A0%E8%AE%BE%E5%A4%87%E9%A1%B5%E9%9D%A2.png">
+<meta property="og:image" content="http://yoursite.com/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E8%93%9D%E7%89%99%E8%A1%80%E7%B3%96%E4%BB%AA.png">
+<meta property="og:image" content="http://yoursite.com/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E6%9F%A5%E6%89%BE%E8%93%9D%E7%89%99.png">
+<meta property="og:image" content="http://yoursite.com/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/WIFI%E8%A1%80%E7%B3%96%E4%BB%AA.png">
+<meta property="og:image" content="http://yoursite.com/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E6%88%91%E7%9A%84%E5%AE%B6%E4%BA%BA.png">
+<meta property="og:image" content="http://yoursite.com/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E8%A1%80%E7%B3%96%E7%BC%96%E8%BE%91%E5%8A%9F%E8%83%BD.png">
+<meta property="og:image" content="http://yoursite.com/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E5%AE%B6%E4%BA%BA%E6%95%B0%E6%8D%AE%E8%AF%A6%E6%83%85%E9%A1%B5.png">
+<meta property="og:image" content="http://yoursite.com/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E7%99%BB%E5%BD%95%E6%B3%A8%E9%94%80%E9%A1%B5%E9%9D%A2.png">
+<meta property="og:image" content="http://yoursite.com/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E8%AF%A6%E6%83%85%E9%A1%B5.png">
+<meta property="og:image" content="http://yoursite.com/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E6%95%B4%E4%BD%93%E6%95%B0%E6%8D%AE%E8%AF%A6%E6%83%85%E9%A1%B5.png">
+<meta property="og:image" content="http://yoursite.com/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E8%AF%A6%E7%BB%86%E8%AE%B0%E5%BD%95%E9%A1%B5.png">
+<meta property="og:image" content="http://yoursite.com/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E8%A7%A3%E7%BB%91%E8%A1%80%E7%B3%96%E4%BB%AA%E5%B9%B6%E6%9C%AA%E5%86%8D%E7%BB%91%E5%AE%9A.png">
+<meta property="og:image" content="http://yoursite.com/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E6%9C%8D%E5%8A%A1%E5%95%86%E5%8A%9F%E8%83%BD%E9%A1%B5.png">
+<meta property="og:image" content="http://yoursite.com/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E9%97%AE%E5%8C%BB%E7%94%9F.png">
+<meta property="og:image" content="http://yoursite.com/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E8%BE%93%E5%85%A5%E9%82%80%E8%AF%B7%E7%A0%81%E9%A1%B5%E9%9D%A2.png">
+<meta property="og:image" content="http://yoursite.com/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E4%BF%A1%E6%81%AF%E5%AE%8C%E5%96%84%E9%A1%B5%E9%9D%A2.png">
+<meta property="og:image" content="http://yoursite.com/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E5%8D%95%E4%B8%AA%E8%AE%BE%E5%A4%87%E8%AF%A6%E6%83%85%E9%A1%B5.png">
+<meta property="og:image" content="http://yoursite.com/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E6%89%8B%E5%8A%A8%E5%BD%95%E5%85%A5.png">
+<meta property="og:updated_time" content="2019-08-23T15:21:01.049Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="智能血糖仪二期项目">
+<meta name="twitter:description" content="智能血糖仪二期项目 （2017年作品）将京东健康小程序与智能硬件相结合，打造京东健康智能数据平台，本期接入智能血糖仪，提供导入血糖数据，血糖提醒和家人血糖管理功能，并接入京东互联网医院问诊，全方位为用户健康保驾护航。 痛点 一期项目满足接入腾讯腾爱血糖仪的需求，该类别血糖仪是依靠WIFI进行连接，商业拓展范围有限；  当前，京东健康并未收集过健康方面的数据，所有的数据来源都是电商药物的销售，一方面">
+<meta name="twitter:image" content="http://yoursite.com/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95%E9%A1%B5.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/23/智能血糖仪/">
+
+
+
+
+
+  <title>智能血糖仪二期项目 | 简约至上</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">简约至上</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/23/智能血糖仪/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ziyi Han">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="简约至上">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">智能血糖仪二期项目</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-23T22:18:13+08:00">
+                2019-08-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="智能血糖仪二期项目-（2017年作品）"><a href="#智能血糖仪二期项目-（2017年作品）" class="headerlink" title="智能血糖仪二期项目 （2017年作品）"></a>智能血糖仪二期项目 （2017年作品）</h1><p>将京东健康小程序与智能硬件相结合，打造京东健康智能数据平台，本期接入智能血糖仪，提供导入血糖数据，血糖提醒和家人血糖管理功能，并接入京东互联网医院问诊，全方位为用户健康保驾护航。</p>
+<h2 id="痛点"><a href="#痛点" class="headerlink" title="痛点"></a>痛点</h2><ul>
+<li><p>一期项目满足接入腾讯腾爱血糖仪的需求，该类别血糖仪是依靠WIFI进行连接，商业拓展范围有限；</p>
+</li>
+<li><p>当前，京东健康并未收集过健康方面的数据，所有的数据来源都是电商药物的销售，一方面无法为用户提供更好的服务，另一方面无法打造大数据平台。</p>
+</li>
+</ul>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li><p>与外部蓝牙设备供应商合作，完成蓝牙设备的接入（确定研发事宜），在考虑接入蓝牙智能血糖仪的同时，应考虑对后续其他蓝牙设备迭代接入做准备；</p>
+</li>
+<li><p>处理数据信息，设计数据可视化方式 ，同时也要考虑后续接入设备的问题；</p>
+</li>
+<li><p>接入京东互联网医院问诊页面，形成产品闭环，完善业务功能。</p>
+</li>
+</ul>
+<h2 id="功能及交互"><a href="#功能及交互" class="headerlink" title="功能及交互"></a>功能及交互</h2><h3 id="功能性脑图"><a href="#功能性脑图" class="headerlink" title="功能性脑图"></a>功能性脑图</h3><h3 id="交互设计图"><a href="#交互设计图" class="headerlink" title="交互设计图"></a>交互设计图</h3><p>授权登录页<br><img src="/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95%E9%A1%B5.png" alt></p>
+<p>主页<br><img src="/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E4%B8%BB%E9%A1%B5.png" alt></p>
+<p>设备管理页面<br><img src="/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86%E9%A1%B5%E9%9D%A2.png" alt></p>
+<p>设备未找到原因<br><img src="/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E8%AE%BE%E5%A4%87%E6%9C%AA%E6%89%BE%E5%88%B0%E5%8E%9F%E5%9B%A0.png" alt></p>
+<p>添加设备页面<br><img src="/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E6%B7%BB%E5%8A%A0%E8%AE%BE%E5%A4%87%E9%A1%B5%E9%9D%A2.png" alt></p>
+<p>蓝牙血糖仪<br><img src="/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E8%93%9D%E7%89%99%E8%A1%80%E7%B3%96%E4%BB%AA.png" alt></p>
+<p>查找蓝牙<br><img src="/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E6%9F%A5%E6%89%BE%E8%93%9D%E7%89%99.png" alt></p>
+<p>WIFI血糖仪<br><img src="/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/WIFI%E8%A1%80%E7%B3%96%E4%BB%AA.png" alt></p>
+<p>我的家人<br><img src="/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E6%88%91%E7%9A%84%E5%AE%B6%E4%BA%BA.png" alt></p>
+<p>血糖编辑功能<br><img src="/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E8%A1%80%E7%B3%96%E7%BC%96%E8%BE%91%E5%8A%9F%E8%83%BD.png" alt></p>
+<p>家人数据详情页<br><img src="/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E5%AE%B6%E4%BA%BA%E6%95%B0%E6%8D%AE%E8%AF%A6%E6%83%85%E9%A1%B5.png" alt></p>
+<p>登录注销页面<br><img src="/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E7%99%BB%E5%BD%95%E6%B3%A8%E9%94%80%E9%A1%B5%E9%9D%A2.png" alt></p>
+<p>详情页<br><img src="/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E8%AF%A6%E6%83%85%E9%A1%B5.png" alt></p>
+<p>整体数据详情页<br><img src="/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E6%95%B4%E4%BD%93%E6%95%B0%E6%8D%AE%E8%AF%A6%E6%83%85%E9%A1%B5.png" alt></p>
+<p>详细记录页<br><img src="/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E8%AF%A6%E7%BB%86%E8%AE%B0%E5%BD%95%E9%A1%B5.png" alt></p>
+<p>解绑血糖仪并未再绑定<br><img src="/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E8%A7%A3%E7%BB%91%E8%A1%80%E7%B3%96%E4%BB%AA%E5%B9%B6%E6%9C%AA%E5%86%8D%E7%BB%91%E5%AE%9A.png" alt></p>
+<p>服务商功能页<br><img src="/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E6%9C%8D%E5%8A%A1%E5%95%86%E5%8A%9F%E8%83%BD%E9%A1%B5.png" alt></p>
+<p>问医生<br><img src="/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E9%97%AE%E5%8C%BB%E7%94%9F.png" alt></p>
+<p>输入邀请码页面<br><img src="/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E8%BE%93%E5%85%A5%E9%82%80%E8%AF%B7%E7%A0%81%E9%A1%B5%E9%9D%A2.png" alt></p>
+<p>信息完善页面<br><img src="/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E4%BF%A1%E6%81%AF%E5%AE%8C%E5%96%84%E9%A1%B5%E9%9D%A2.png" alt></p>
+<p>单个设备详情页<br><img src="/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E5%8D%95%E4%B8%AA%E8%AE%BE%E5%A4%87%E8%AF%A6%E6%83%85%E9%A1%B5.png" alt></p>
+<p>手动录入<br><img src="/images/%E6%99%BA%E8%83%BD%E8%A1%80%E7%B3%96%E4%BB%AA/%E6%89%8B%E5%8A%A8%E5%BD%95%E5%85%A5.png" alt></p>
+<h2 id="项目复盘"><a href="#项目复盘" class="headerlink" title="项目复盘"></a>项目复盘</h2><h2 id="项目复盘-1"><a href="#项目复盘-1" class="headerlink" title="项目复盘"></a>项目复盘</h2><p>本次项目是我在实际过程中参与的第一个项目，也是一个从0到1的项目，将我在京东6个月的实习串联起来，严格意义上来说，它不是一个成功的项目，但对我的成长是一个催化剂。</p>
+<h3 id="成功点"><a href="#成功点" class="headerlink" title="成功点"></a>成功点</h3><h4 id="交互设计到用户思维"><a href="#交互设计到用户思维" class="headerlink" title="交互设计到用户思维"></a>交互设计到用户思维</h4><p>在这次项目中，我从一个刚刚会使用Axure绘制简单原型的小白，进阶到可以出一套像模像样的交互稿，上面展示的是2.0版本，我出到了4.0版本。</p>
+<p>我认为产品对于交互图梳理是非常必要的，<strong>因为通过交互，模拟用户场景，可以判断产品功能设计上是否有缺陷，能否通过功能设计，提高用户容错性，优化用户体验。</strong></p>
+<p>与腾讯完全不同的是，我当时在的京东的部门交互资源很有限，因此，基本交互稿都是涵盖在产品的原型图里。我通过对周围前辈的原型图揣摩，并针对京东深圳交互设计师对互联网医院输出的交互图反复研究，提升了自己的交互设计能力，<strong>也同时提升了自己的用户思维。</strong></p>
+<h4 id="商业思维和数据观建立"><a href="#商业思维和数据观建立" class="headerlink" title="商业思维和数据观建立"></a>商业思维和数据观建立</h4><p>在这次项目中，通过与周围优秀的产品和业务同学讨论，将本项目不仅看做是一个小项目，更是整个京东健康战略布局的一部分。而现在的时代，是<strong>数据的时代</strong>，如何将数据更好利用，在全方位服务用户的同时，也可以为企业盈利和提升企业形象。<strong>这段经历也使我在后来对于产品发展和相关技术应用于市场，习惯了从宏观大局思考，关注数据流动的商业思维来考虑问题</strong>。</p>
+<h3 id="经验教训"><a href="#经验教训" class="headerlink" title="经验教训"></a>经验教训</h3><h4 id="通过明确产品方案，完善项目管理"><a href="#通过明确产品方案，完善项目管理" class="headerlink" title="通过明确产品方案，完善项目管理"></a>通过明确产品方案，完善项目管理</h4><p>由于是第一次接触实际项目，对于业务问题很多时候都没有思考清楚，没有搞清楚需求到底是什么，所以产品方案也是一改再改。而且因为本次项目比较复杂，需要与京东内部物联网部门京东微联和外部合作供应商糖+合作，涉及模块和技术研发资源归属比较多，对于早已确定的产品方案，在技术层次的合作却一直在扯皮，导致项目延期，在我离职前才排上期，以至于无法跟进后期项目进度。</p>
+<p>在以后的工作中，需要把握以下几点：</p>
+<ul>
+<li><p>深入挖掘用户需求</p>
+</li>
+<li><p>充分与业务和研发沟通，判断需求可行性</p>
+</li>
+<li><p>明确制定项目节点，确定项目管理milestone，并且严格按照timetable执行</p>
+</li>
+</ul>
+<p><strong>在腾讯的实习过程中，base在本次经验，每次接到需求，我都会问清楚业务方的诉求到底是什么，需求是否必要（因为业务方想要所有的功能），需求拓展能否满足潜在的业务问题（可业务方的想法大多只是浮于表面），然后在PRD撰写之前，就会和研发确认可行性，而不是拍脑袋输出产品方案的时候才发现，实际情况与自己的想法完全不一样。</strong></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>赚点小费喝咖啡~</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Ziyi Han WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/23/盒马生鲜与新零售分析/" rel="next" title="盒马生鲜与新零售分析">
+                <i class="fa fa-chevron-left"></i> 盒马生鲜与新零售分析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/23/YOLO旅游网站的设计与商业分析/" rel="prev" title="YOLO旅游网站的设计与商业分析md">
+                YOLO旅游网站的设计与商业分析md <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Ziyi Han">
+            
+              <p class="site-author-name" itemprop="name">Ziyi Han</p>
+              <p class="site-description motion-element" itemprop="description">存在的意义就是为了让这个世界因为你有一点点不一样</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#智能血糖仪二期项目-（2017年作品）"><span class="nav-number">1.</span> <span class="nav-text">智能血糖仪二期项目 （2017年作品）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#痛点"><span class="nav-number">1.1.</span> <span class="nav-text">痛点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目标"><span class="nav-number">1.2.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能及交互"><span class="nav-number">1.3.</span> <span class="nav-text">功能及交互</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能性脑图"><span class="nav-number">1.3.1.</span> <span class="nav-text">功能性脑图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交互设计图"><span class="nav-number">1.3.2.</span> <span class="nav-text">交互设计图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目复盘"><span class="nav-number">1.4.</span> <span class="nav-text">项目复盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目复盘-1"><span class="nav-number">1.5.</span> <span class="nav-text">项目复盘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#成功点"><span class="nav-number">1.5.1.</span> <span class="nav-text">成功点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#交互设计到用户思维"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">交互设计到用户思维</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#商业思维和数据观建立"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">商业思维和数据观建立</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#经验教训"><span class="nav-number">1.5.2.</span> <span class="nav-text">经验教训</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通过明确产品方案，完善项目管理"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">通过明确产品方案，完善项目管理</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ziyi Han</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
